@@ -6,11 +6,11 @@ const uint Buzzer = 21;
 const uint led_G = 11;
 const uint led_B = 12;
 const uint led_R = 13;
-#define Tempo_led = 500;
+#define Tempo_led 500
 
 //acender e apagar led verde
 
-void controle_led_verde() { 
+void acionar_led_verde() { 
     gpio_put(led_R, 0);
     gpio_put(led_B, 0);
     gpio_put(led_G, 1);
