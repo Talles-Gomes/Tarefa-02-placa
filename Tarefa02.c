@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
-
+#include <string.h>
 
 const uint Buzzer = 10;
 const uint led_G = 11;
@@ -27,19 +27,29 @@ const uint led_R = 13;
 //ativar o buzzer por 2 segundos
 
 
+ int main(){
+    stdio_init_all();
+    char resposta[10];
+    //inicializar o buzzer e leds apagados, e iniciar eles como apagados/desligados
+    
+    while (true) {
+        scanf(" %s", resposta);
+        if(strcmp(resposta,"green")==0){}
+            //led verde
+        else
+            if(strcmp(resposta,"blue")==0){}
+                //led azul
+        else
+            if(strcmp(resposta,"red")==0){}
+                //led vermelho
+        else
+            if(strcmp(resposta,"white")==0){}
+                //tres leds
+        else
+            if(strcmp(resposta,"buzzer")==0){}
+                //apaga os leds e liga o buzzer
+            
 
-int main(){
-    //inicialização das portas com os pinos e o buzzer
-
-
-  
-
-while(true){
- 
- // rotina dos leds e do buzzer
-
-
-}
-
-
+        sleep_ms(200);
+    }
 }
