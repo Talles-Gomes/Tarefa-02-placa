@@ -31,7 +31,24 @@ void acionar_led_verde() {
 
 
 //ativar o buzzer por 2 segundos
-
+void acionar_buzzer(){
+    // tempo de acionamento do buzzer
+    int time =2000;
+    // executa enquanto o contador não zeroa
+    while(time>0){
+        //ativa o buzzer
+        gpio_put(Buzzer,1);
+        // fica ativo por 1 ms
+        sleep_ms(1);
+        // decrementa contador
+        time-=1;
+        //desativa o buzzer
+        gpio_put(Buzzer,0);
+        // fica desativado por 3 ms
+        sleep_ms(3);
+        // decrementa contador
+        time-=3;
+    }
 
 
 int main(){
