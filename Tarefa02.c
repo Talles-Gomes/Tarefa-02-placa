@@ -2,15 +2,21 @@
 #include "pico/stdlib.h"
 
 
-const uint Buzzer = 10;
+const uint Buzzer = 21;
 const uint led_G = 11;
 const uint led_B = 12;
 const uint led_R = 13;
-#define Tempo_led = 500;
+#define Tempo_led 500
 
 //acender e apagar led verde
 
-
+void acionar_led_verde() { 
+    gpio_put(led_R, 0);
+    gpio_put(led_B, 0);
+    gpio_put(led_G, 1);
+    sleep_ms(Tempo_led);
+    gpio_put(led_G, 0);
+}
 
 //acender e apagar led vermelho
 
