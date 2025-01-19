@@ -53,6 +53,14 @@ void acionar_buzzer(){
 
     // inicializa bootsel
     void boot_mode(){
+        printf("Entrando em modo bootsel em 5s!!\n");
+        //pisca led vermelho
+        for( int i=0;i<5;i++){
+            gpio_put(led_R, 1);
+            sleep_ms(Tempo_led);
+            gpio_put(led_R, 0);
+            sleep_ms(Tempo_led);
+        }
         reset_usb_boot(0, 0);
     }
 
