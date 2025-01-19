@@ -20,11 +20,23 @@ void acionar_led_verde() {
 
 //acender e apagar led vermelho
 
-
+void acionar_led_vermelho() { 
+    gpio_put(led_R, 1);
+    gpio_put(led_B, 0);
+    gpio_put(led_G, 0);
+    sleep_ms(Tempo_led);
+    gpio_put(led_R, 0);
+}
 
 //acender e apagar led azul
 
-
+void acionar_led_azul() { 
+    gpio_put(led_R, 0);
+    gpio_put(led_B, 1);
+    gpio_put(led_G, 0);
+    sleep_ms(Tempo_led);
+    gpio_put(led_B, 0);
+}
 
 //acender e apagar todos os leds
 
