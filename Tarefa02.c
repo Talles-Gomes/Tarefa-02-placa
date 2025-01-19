@@ -8,6 +8,33 @@ const uint led_B = 12;
 const uint led_R = 13;
 #define Tempo_led 500
 
+// define os pinos do teclado com as portas GPIO
+uint columns[4] = {4, 3, 2, 14};    // colunas (C1 a C4)
+uint rows [4] = {8, 7, 6, 5};    // linhas (R1 a R4)
+
+// Mapa das teclas 
+char KEY_MAP[16] = {
+    '1', '2', '3', 'A',
+    '4', '5', '6', 'B',
+    '7', '8', '9', 'C',
+    '*', '0', '#', 'D'
+};
+
+// Inicializa os GPIOs 
+void init_gpio() {
+    for (int i = 0; i < 4; i++) {
+        gpio_init(rows[i]); // Inicializa GPIO da linha
+        gpio_set_dir(rows[i], GPIO_OUT);  // Configura como saída
+        gpio_put(rows[i], 1);  // Define estado inicial como alto
+    }
+
+    for (int i = 0; i < 4; i++) {
+        gpio_init(columns[i]); // Inicializa GPIO da coluna
+        gpio_set_dir(columns[i], GPIO_IN); // Configura como entrada
+        gpio_pull_up(columns[i]); // Ativa resistor pull-up
+    }
+}
+
 //acender e apagar led verde
 
 void acionar_led_verde() { 
