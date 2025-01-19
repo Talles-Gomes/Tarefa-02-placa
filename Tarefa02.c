@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
+#include "pico/bootrom.h"
 
 
 const uint Buzzer = 21;
@@ -50,6 +51,10 @@ void acionar_buzzer(){
         time-=3;
     }
 
+    // inicializa bootsel
+    void boot_mode(){
+        reset_usb_boot(0, 0);
+    }
 
 int main(){
     //inicialização das portas com os pinos e o buzzer
